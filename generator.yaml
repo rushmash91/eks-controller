@@ -78,18 +78,10 @@ resources:
         404:
           code: ResourceNotFoundException
       terminal_codes:
-        - ResourceLimitExceeded
-        - ResourceNotFound
-        - ResourceInUse
-        - OptInRequired
-        - InvalidParameterCombination
-        - InvalidParameterValue
+        - ResourceLimitExceededException
+        - ResourceNotFoundException
+        - ResourceInUseException
         - InvalidParameterException
-        - InvalidQueryParameter
-        - MalformedQueryString
-        - MissingAction
-        - MissingParameter
-        - ValidationError
     print:
       add_age_column: true
       add_synced_column: true
@@ -184,18 +176,10 @@ resources:
         404:
           code: ResourceNotFoundException
       terminal_codes:
-        - ResourceLimitExceeded
-        - ResourceNotFound
-        - ResourceInUse
-        - OptInRequired
-        - InvalidParameterCombination
-        - InvalidParameterValue
+        - ResourceLimitExceededException
+        - ResourceNotFoundException
+        - ResourceInUseException
         - InvalidParameterException
-        - InvalidQueryParameter
-        - MalformedQueryString
-        - MissingAction
-        - MissingParameter
-        - ValidationError
     hooks:
       delta_pre_compare:
         code: customPreCompare(a, b)
@@ -264,18 +248,10 @@ resources:
         404:
           code: ResourceNotFoundException
       terminal_codes:
-        - ResourceLimitExceeded
-        - ResourceNotFound
-        - ResourceInUse
-        - OptInRequired
-        - InvalidParameterCombination
-        - InvalidParameterValue
+        - ResourceLimitExceededException
+        - ResourceNotFoundException
+        - ResourceInUseException
         - InvalidParameterException
-        - InvalidQueryParameter
-        - MalformedQueryString
-        - MissingAction
-        - MissingParameter
-        - ValidationError
     hooks:
       delta_pre_compare:
         code: customPreCompare(a, b)
@@ -358,18 +334,10 @@ resources:
         404:
           code: ResourceNotFoundException
       terminal_codes:
-        - ResourceLimitExceeded
-        - ResourceNotFound
-        - ResourceInUse
-        - OptInRequired
-        - InvalidParameterCombination
-        - InvalidParameterValue
+        - ResourceLimitExceededException
+        - ResourceNotFoundException
+        - ResourceInUseException
         - InvalidParameterException
-        - InvalidQueryParameter
-        - MalformedQueryString
-        - MissingAction
-        - MissingParameter
-        - ValidationError
     hooks:
       delta_pre_compare:
         code: customPreCompare(delta, a, b)
