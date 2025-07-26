@@ -177,3 +177,50 @@ func TestFormatPodIdentityAssociation(t *testing.T) {
 func ptr[T any](v T) *T {
 	return &v
 }
+
+func TestAddonInFailedState(t *testing.T) {
+	tests := []struct {
+		name   string
+		status *string
+		want   bool
+	}{
+		{
+			name:   "CREATE_FAILED status",
+			status: ptr("CREATE_FAILED"),
+			want:   true,
+		},
+		{
+			name:   "UPDATE_FAILED status",
+			status: ptr("UPDATE_FAILED"),
+			want:   true,
+		},
+		{
+			name:   "ACTIVE status",
+			status: ptr("ACTIVE"),
+			want:   false,
+		},
+		{
+			name:   "DELETE_FAILED status",
+			status: ptr("DELETE_FAILED"),
+			want:   false,
+		},
+		{
+			name:   "nil status",
+			status: nil,
+			want:   false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			r := &resource{
+				ko: &v1alpha1.Addon{},
+			}
+			if tt.status != nil {
+				r.ko.Status.Status = tt.status
+			}
+			if got := addonInFailedState(r); got != tt.want {
+				t.Errorf("addonInFailedState() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
